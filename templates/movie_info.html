@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>電影詳細資訊</title>
+    <style>
+        body { font-family: "Microsoft JhengHei", sans-serif; padding: 40px; line-height: 2; }
+        .info-container { border-left: 5px solid #3498db; padding-left: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="info-container">
+        <h2>🎬 電影詳細資訊</h2>
+        <p><strong>片名：</strong> {{ name }}</p>
+        <p><strong>片長：</strong> {{ runtime }}</p>
+        <p><strong>影片介紹：</strong> <a href="{{ link }}" target="_blank">{{ link }}</a></p>
+    </div>
+
+    <br><br>
+    <a href="/movie">← 返回電影查詢</a> | <a href="/">回到個人首頁</a>
+
+</body>
+</html>

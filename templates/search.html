@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>教師查詢</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; line-height: 1.6; }
+        .result-item { margin-bottom: 10px; padding: 10px; border-bottom: 1px solid #ddd; }
+        .highlight { color: #0000ff; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>靜宜資管老師查詢</h2>
+    
+    <form method="POST">
+        <label for="keyword">請輸入老師姓名關鍵字：</label>
+        <input type="text" id="keyword" name="keyword" value="楊" required>
+        <button type="submit">查詢</button>
+    </form>
+
+    <hr>
+
+    {% if keyword %}
+        <h3>查詢結果 (關鍵字: {{ keyword }}):</h3>
+        {% if results %}
+            {% for teacher in results %}
+                <div class="result-item">
+                    <span class="highlight">{{ teacher.name }}</span> 老師的研究是在 <strong>{{ teacher.lab }}</strong>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>抱歉，找不到相關老師。</p>
+        {% endif %}
+    {% endif %}
+
+    <br><a href="/">返回首頁</a>
+</body>
+</html>

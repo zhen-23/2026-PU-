@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>電影資料查詢</title>
+</head>
+<body>
+    <h1>🎬 電影資料查詢系統</h1>
+    
+    <form action="/search_movie" method="post">
+        請輸入電影名稱關鍵字：
+        <input type="text" name="keyword" value="{{ keyword }}">
+        <input type="submit" value="查詢">
+    </form>
+
+    <hr>
+
+    {% if keyword %}
+        <h3>查詢結果 (關鍵字: {{ keyword }}):</h3>
+        <ul>
+        {% for movie in movies %}
+            <li style="margin-bottom: 20px;">
+                <strong style="color: blue;">{{ movie.title }}</strong> 的片長是 <b>{{ movie.showLength }}</b> 分鐘
+                <br>
+                <small>上映日期：{{ movie.showDate }}</small>
+                <br>
+                <a href="{{ movie.hyperlink }}" target="_blank">點此查看介紹</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <p><a href="/movie_update">🔄 點此更新最新電影資料庫</a></p>
+</body>
+</html>

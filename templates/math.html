@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數學運算</title>
+    <style>
+        body {
+            font-family: "標楷體";
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        input, select, button {
+            font-size: 20px;
+            padding: 5px;
+            margin: 5px;
+        }
+        h2 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>數學四則運算</h1>
+    
+    <form method="POST">
+        <input type="number" name="x" step="any" placeholder="數字 x" required>
+        
+        <select name="opt">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        
+        <input type="number" name="y" step="any" placeholder="數字 y" required>
+        
+        <button type="submit">計算</button>
+    </form>
+
+    {% if result is not none %}
+        <hr width="50%">
+        <h2>計算結果：{{ result }}</h2>
+    {% endif %}
+
+    <br><br>
+    <a href="/">回首頁</a>
+</body>
+</html>

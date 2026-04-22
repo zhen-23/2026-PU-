@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>線上擲筊</title>
+    <style>
+        body { text-align: center; font-family: sans-serif; padding-top: 50px; }
+        .cup-img { width: 150px; margin: 10px; }
+        .result-box { margin-top: 20px; border: 1px solid #ccc; padding: 20px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <h1>🙏 線上擲筊</h1>
+
+    <a href="/cup?action=toss" style="font-size: 20px; padding: 10px; background: red; color: white; text-decoration: none;">點我擲筊</a>
+    <br><br>
+
+    {% if result %}
+        <div style="border: 2px solid gold; padding: 20px; display: inline-block;">
+            <h3>結果：{{ result.message }}</h3>
+            <img src="{{ result.cup1 }}" width="150">
+            <img src="{{ result.cup2 }}" width="150">
+        </div>
+    {% else %}
+        <p>請虔誠祈求後點擊按鈕</p>
+    {% endif %}
+
+    <hr>
+    <a href="/">返回首頁</a>
+</body>
+</html>

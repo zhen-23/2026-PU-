@@ -98,6 +98,30 @@ def search():
 
 # --- 【原本的其他功能】 ---
 
+# 1. 補回課程資訊
+@app.route("/mis")
+def mis():
+    return render_template("mis.html")
+
+# 2. 補回 GET 傳值範例
+@app.route("/welcome")
+def welcome():
+    user = request.values.get("u")
+    dep = request.values.get("dep")
+    return render_template("welcome.html", name=user, department=dep)
+
+# 3. 補回帳密 POST 驗證
+@app.route("/account", methods=["GET", "POST"])
+def account():
+    if request.method == "POST":
+        user = request.form["user"]
+        pwd = request.form["pwd"]
+        result = "帳號或密碼錯誤"
+        if user == "zhen" and pwd == "1234":  # 這裡可以改成妳原本設的帳密
+            result = "帳密正確，歡迎純珍！"
+        return f"{result}<br><a href='/'>返回首頁</a>"
+    return render_template("account.html")
+
 @app.route("/read")
 def read():
     db = firestore.client()

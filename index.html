@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蔡純珍的個人網站</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: white;
+            background-color: var(--accent-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* 綠色按鈕：數學、傳值、帳密 */
+        .nav-link[href*="math"], .nav-link[href*="welcome"], .nav-link[href*="account"] { background-color: #27ae60; }
+
+        /* 橘色按鈕：擲茭 */
+        .nav-link[href*="cup"] { background-color: #e67e22; }
+
+        /* 紫色按鈕：讀取、查詢、電影 */
+        .nav-link[href*="read"], .nav-link[href*="search"], .nav-link[href*="movie"] { background-color: #8e44ad; }
+
+        @media (max-width: 600px) {
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>蔡純珍的個人首頁</h1>
+    
+    <div class="nav-grid">
+        <a href="/mis" class="nav-link">課程資訊</a>
+        <a href="/today" class="nav-link">今天日期</a>
+        <a href="/me" class="nav-link">關於純珍</a>
+        <a href="/welcome?u=純珍&dep=靜宜資管" class="nav-link">GET 傳值範例</a>
+        <a href="/account" class="nav-link">帳密 POST 驗證</a>
+        <a href="/math" class="nav-link">基礎數學運算</a>
+        <a href="/cup" class="nav-link">線上擲茭</a>
+        <a href="/read" class="nav-link">Firestore 資料讀取</a>
+        <a href="/search" class="nav-link">教師姓名查詢</a>
+        <a href="/search_movie" class="nav-link" style="background-color: #9b59b6;">查詢即將上映電影</a>
+        <a href="/movie" class="nav-link">更新電影資料庫</a>
+    </div>
+</div>
+
+</body>
+</html>
